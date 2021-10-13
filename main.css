@@ -19,7 +19,7 @@ body {
 
 /* main */
 
-.porkertable {
+.pokertable {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;

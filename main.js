@@ -68,11 +68,44 @@ const river = () => {
 
 const stage4 = () => {};
 
-const dealFunction = [flop, turn, river, stage4];
+const dealFunction = () => {
+  switch (StageCount) {
+    case 0:
+      flop();
+      break;
+    case 1:
+      turn();
+      break;
+    case 2:
+      river();
+      break;
+
+    default:
+      break;
+  }
+};
+
+const restart = () => {
+  StageCount = 0;
+  imgSCard1.src = "./img/0.png";
+  imgSCard2.src = "./img/0.png";
+  imgSCard3.src = "./img/0.png";
+  imgSCard4.src = "";
+  imgSCard5.src = "";
+  imgMyCard1.src = "./img/0.png";
+  imgMyCard2.src = "./img/0.png";
+  MyCard = [false, false];
+
+  card52 = makeCard52();
+  cardP0 = [card52[0], card52[1]];
+  cardP1 = [card52[2], card52[3]];
+  cardP = [cardP0, cardP1];
+  cardS = [card52[4], card52[5], card52[6], card52[7], card52[8]];
+};
 
 imgMyCard1.addEventListener("click", openMyCard1);
 imgMyCard2.addEventListener("click", openMyCard2);
-dealButton.addEventListener("click", dealFunction[StageCount]);
-dealButton1.addEventListener("click", dealFunction[0]);
-dealButton2.addEventListener("click", dealFunction[1]);
-dealButton3.addEventListener("click", dealFunction[2]);
+dealButton.addEventListener("click", dealFunction);
+dealButton1.addEventListener("click", restart);
+dealButton2.addEventListener("click", turn);
+dealButton3.addEventListener("click", river);

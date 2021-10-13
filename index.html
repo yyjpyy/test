@@ -17,7 +17,7 @@
       <div class="container">
         <div class="pot"></div>
         <div class="yourhand"></div>
-        <div class="porkertable">
+        <div class="pokertable">
           <div class="ptctn">
             <img id="SCard1" src="./img/0.png" alt="" />
           </div>
@@ -77,9 +77,9 @@
           <p>↓テスト中</p>
           <div>
             <a href="#" class="btn-push" id="deal">ディール</a>
-            <a href="#" class="btn-push" id="deal1">フロップ</a>
-            <a href="#" class="btn-push" id="deal2">ターン</a>
-            <a href="#" class="btn-push" id="deal3">リバー</a>
+            <a href="#" class="btn-push" id="deal1">再スタート</a>
+            <a href="#" class="btn-push" id="deal2">なし</a>
+            <a href="#" class="btn-push" id="deal3">なし</a>
           </div>
         </div>
       </div>
@@ -89,5 +89,20 @@
     <script src="./main.js"></script>
     <script src="./share.js"></script>
     <script src="./calc.js"></script>
+    <script>
+      /* ダブルタップによる拡大を禁止 */
+      var t = 0;
+      document.documentElement.addEventListener(
+        "touchend",
+        function (e) {
+          var now = new Date().getTime();
+          if (now - t < 350) {
+            e.preventDefault();
+          }
+          t = now;
+        },
+        false
+      );
+    </script>
   </body>
 </html>
